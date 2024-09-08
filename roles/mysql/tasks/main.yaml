@@ -11,11 +11,12 @@
 
 - name: Checking by connecting to the mysql_db
   community.builtin.mysql_info:
-    login_user: "{{ remote_user }}"
+    login_user: "{{ login_user }}"
     login_password: "{{ login_password }}"
     login_host: "{{ mysql.mohansai.online }}"
   ignore_errors: true
+  register: mysql_info
 
 - name: setting up the password for mysql db for root user if password is not existing
   ansible.builtin.command: mysql_secure_installation --set-root-pass ExpenseApp@1
-    
+  when: mysql_info.failed is true

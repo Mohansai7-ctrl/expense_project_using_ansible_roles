@@ -1,2 +1,3 @@
-login_password: "DevOps321"
+login_password: "ExpenseApp@1"
 login_host: mysql.mohansai.online
+login_user: root

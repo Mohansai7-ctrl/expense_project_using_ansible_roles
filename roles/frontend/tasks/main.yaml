@@ -1,0 +1,16 @@
+- name: downloading the nginx
+  ansible.builtin.package:
+    name: nginx
+    state: present
+
+- name: importing common tasks from common role
+  ansible.builtin.import_role:
+  - name: common
+  - tasks_from: app-pre-req
+
+- name: copying expense.conf
+  ansible.buitin.template:
+    name: expense.conf.j2
+    dest: /etc/nginx/default.d/expense.conf
+  notify: #as placing the expense.conf here, it will notify the handler restart_nginx
+  restart_nginx
