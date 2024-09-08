@@ -6,8 +6,12 @@
 
 - name: Installing the nodejs
   ansible.builtin.package:
-    name: nodejs
+    name: "{{ item }}"
     state: installed
+  loop:
+    - nodejs
+    - mysql
+    
 
 - name: creating expense user
   ansible.builtin.user:
@@ -17,6 +21,11 @@
   ansible.builtin.import_role:
     name: common
     tasks_from: app-pre-req
+
+
+- name:
+  ansible.builtin.debug:
+    msg: " app directory is created "
 
 - name: Installing required dependencies by installing the build tool npm
   ansible.builtin.command: npm install
