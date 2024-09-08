@@ -24,7 +24,7 @@
 
 
   - name: creating ec2_instances
-    ansible.aws.ec2_instance:
+    amazon.aws.ec2_instance:
       name: "{{ item }}"
       instance_type: t3.micro
       security_id: "{{ sg_id }}"
@@ -40,7 +40,7 @@
 
 
   - name: creating route 53 records of private ip addresses
-    ansible.aws.route53:
+    amazon.aws.route53:
       state: present
       zone: "{{ zone }}"
       record: "{{ item.item }}.{{ zone }}"
@@ -53,7 +53,7 @@
 
 
   - name: creating route 53 records of public ip address of frontend
-    ansible.aws.route53:
+    amazon.aws.route53:
       state: present
       zone: "{{ zone }}"
       record: "{{ zone }}"
