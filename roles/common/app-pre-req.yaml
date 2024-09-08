@@ -1,8 +1,8 @@
-- name: removing the file/directory
-  ansible.builtin.file:
-    path: "{{ app_location }}"
-    state: absent
-  ignore_errors: true
+# - name: removing the file/directory
+#   ansible.builtin.file:
+#     path: "{{ app_location }}"
+#     state: absent
+#   ignore_errors: true
 
 - name: creating the /app or html content
   ansible.builtin.file:
