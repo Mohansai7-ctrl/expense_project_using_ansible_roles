@@ -9,7 +9,7 @@
   - tasks_from: app-pre-req
 
 - name: copying expense.conf
-  ansible.buitin.template:
+  ansible.builtin.template:
     name: expense.conf.j2
     dest: /etc/nginx/default.d/expense.conf
   notify: #as placing the expense.conf here, it will notify the handler restart_nginx

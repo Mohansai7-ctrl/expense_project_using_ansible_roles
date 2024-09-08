@@ -47,7 +47,7 @@
     executable: pip3.9
 
 - name: importing the mysql table
-  community.mysql.mysql_info:
+  community.mysql.mysql_db:
     login_host: "{{ login_host }}"
     login_user: root
     login_password: "{{ login_password }}"
