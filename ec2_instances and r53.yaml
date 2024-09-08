@@ -3,14 +3,15 @@
   connection: local
 
   vars:
-  - instances:
-    - mysql
-    - backend
-    - frontend
   - sg_id: "sg-0d91387712ba38962"
   - subnet_id: "subnet-03ff7a389bf0ac665"
   - ami_id: "ami-09c813fb71547fc4f"
   - zone: "mohansai.online"
+  - instances:
+    - mysql
+    - backend
+    - frontend
+  
   
 
   tasks:
