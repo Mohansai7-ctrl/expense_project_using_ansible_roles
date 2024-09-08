@@ -1,3 +1,11 @@
+- name: ansible to install pymysql
+  ansible.builtin.pip:
+    name:
+    - PyMySQL
+    - cryptography
+    executable: pip3.9
+
+
 - name: Configuring the mysql server by dowloading the required package
   ansible.builtin.package:
     name: mysql-server
