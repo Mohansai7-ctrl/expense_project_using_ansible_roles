@@ -1,0 +1,21 @@
+- name: Configuring the mysql server by dowloading the required package
+  ansible.builtin.package:
+    name: mysql-server
+    state: installed
+
+- name: Starting and enabling the mysqld
+  ansible.builtin.service:
+    name: mysqld
+    state: started
+    enabled: yes
+
+- name: Checking by connecting to the mysql_db
+  community.builtin.mysql_info:
+    login_user: "{{ remote_user }}"
+    login_password: "{{ login_password }}"
+    login_host: "{{ mysql.mohansai.online }}"
+  ignore_errors: true
+
+- name: setting up the password for mysql db for root user if password is not existing
+  ansible.builtin.command: mysql_secure_installation --set-root-pass ExpenseApp@1
+    
